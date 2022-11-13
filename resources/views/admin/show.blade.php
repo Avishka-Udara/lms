@@ -1,18 +1,13 @@
 @extends('admin.layout')
 @section('content')
 <style>
-    .container {
-      max-width: 450px;
-    }
+
     .push-top {
       margin-top: 50px;
     }
 </style>
 <div class="card push-top">
-  <div class="card-header">
-    VIEW
-  </div>
-  <div class="card-body">
+
     @if ($errors->any())
       <div class="alert alert-danger">
         <ul>
@@ -29,7 +24,7 @@
             <td>Name</td>
             <td>Email</td>
             <td>usertype</td>
-            <td class="text-center">Action</td>
+            <td>Action</td>
             </tr>
         </thead>
         <tbody>
@@ -38,17 +33,16 @@
                 <td>{{$User->name}}</td>
                 <td>{{$User->email}}</td>
                 <td>{{$User->usertype}}</td>
-                <td class="text-center">
-                    <a href="{{ route('User.edit', $User->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                    <form action="{{ route('User.destroy', $User->id)}}" method="post" style="display: inline-block">
+                <td class="d-flex">
+                    <a href="{{ route('User.edit', $User->id)}}" class="btn btn-primary">Edit</a>
+                    <form action="{{ route('User.destroy', $User->id)}}" method="post" class="px-2">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                        <button class="btn btn-warning" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>
         </tbody>
     </table>
-  </div>
 </div>
 @endsection

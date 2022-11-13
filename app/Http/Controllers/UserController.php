@@ -52,7 +52,7 @@ class UserController extends Controller
                 'email' => 'required|max:255',
                 'usertype' => 'required',
                 'password' => 'required|max:255',
-                
+
             ]);
             $user = User::create([
                 'name'=>$storeData['name'],

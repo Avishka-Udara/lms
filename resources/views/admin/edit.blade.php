@@ -39,9 +39,9 @@
           </div>
           <div class="form-group">
               <label for="password">Password</label>
-              <input type="text" class="form-control" name="password" value="{{ $User->password }}"/>
+              <input type="text" class="form-control" name="password" value="{{$User->password }}"/>
           </div>
-          <button type="submit" class="btn btn-block btn-danger">Update User</button>
+          <button type="submit" class="btn btn-block btn-outline-danger">Update User</button>
       </form>
   </div>
 </div>
