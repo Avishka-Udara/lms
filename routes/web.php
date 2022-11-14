@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +31,5 @@ Route::middleware([
 
 Route::get('/home',[HomeController::class,'home']);
 Route::resource('User', UserController::class);
+
+Route::resource('posts', PostController::class);

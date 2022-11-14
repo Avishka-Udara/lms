@@ -5,8 +5,8 @@
     margin-top: 50px;
   }
 </style>
-<div class="push-top">
-    <a href="{{ route('User.create')}}" class="btn btn-outline-success">CREATE NEW USER</a>
+<div class="push-top ">
+    <a href="{{ route('User.create')}}" class="btn btn-outline-success mb-5">CREATE NEW USER</a>
 </div>
 <div class="push-top">
   @if(session()->get('success'))
@@ -14,7 +14,7 @@
       {{ session()->get('success') }}
     </div><br />
   @endif
-  <table class="table">
+  <table class="table pt-4">
     <thead>
         <tr class="table-success">
           <td>ID</td>
