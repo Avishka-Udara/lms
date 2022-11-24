@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\NewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/', WelcomeController::class);
+Route::resource('news', NewsController::class);
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,6 +36,19 @@ Route::middleware([
 });
 
 Route::get('/home',[HomeController::class,'home']);
+
 Route::resource('User', UserController::class);
 
 Route::resource('posts', PostController::class);
+
+Route::get('faq', function () {
+    return view('welcome.faq');
+});
+Route::get('about1', function () {
+    return view('welcome.about1');
+});
+Route::get('about2', function () {
+    return view('welcome.about2');
+});
+
+

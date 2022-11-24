@@ -21,6 +21,7 @@ class PostController extends Controller
             $posts = Post::latest()->paginate(5);
             return view('posts.index',compact('posts'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
+
         }
         else {
             abort(403);

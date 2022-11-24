@@ -1,134 +1,1097 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>VIDESA</title>
+<head>
 
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- META ============================================= -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="author" content="avishka udara" />
+    <meta name="robots" content="" />
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    <!-- DESCRIPTION -->
+    <meta name="description" content="VIDESA LEARNING PLATFORM" />
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <!-- OG -->
+    <meta property="og:title" content="VIDESA LEARNING PLATFORM" />
+    <meta property="og:description" content="VIDESA LEARNING PLATFORMe" />
+    <meta property="og:image" content="" />
+    <meta name="format-detection" content="+94 77 53 51 648">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+    <!-- FAVICONS ICON ============================================= -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+
+    <!-- PAGE TITLE HERE ============================================= -->
+    <title>VIDESA</title>
+
+    <!-- MOBILE SPECIFIC ============================================= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lt IE 9]>
+ <script src="assets/js/html5shiv.min.js"></script>
+ <script src="assets/js/respond.min.js"></script>
+ <![endif]-->
+
+    <!-- All PLUGINS CSS ============================================= -->
+    <link rel="stylesheet" type="text/css" href="assets/css/assets.css">
+
+    <!-- TYPOGRAPHY ============================================= -->
+    <link rel="stylesheet" type="text/css" href="assets/css/typography.css">
+
+    <!-- SHORTCODES ============================================= -->
+    <link rel="stylesheet" type="text/css" href="assets/css/shortcodes/shortcodes.css">
+
+    <!-- STYLESHEETS ============================================= -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link class="skin" rel="stylesheet" type="text/css" href="assets/css/color/color-1.css">
+
+    <!-- REVOLUTION SLIDER CSS ============================================= -->
+    <link rel="stylesheet" type="text/css" href="assets/vendors/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/revolution/css/navigation.css">
+    <!-- REVOLUTION SLIDER END -->
+</head>
+
+<body id="bg">
+    <div class="page-wraper">
+        <div id="loading-icon-bx"></div>
+        <!-- Header Top ==== -->
+        <header class="header rs-nav header-transparent">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row d-flex justify-content-between">
+                        <div class="topbar-left">
+                            <ul>
+                                <li><a href="faq"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
+                                <li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@videsa.com</a></li>
+                            </ul>
+                        </div>
+                        @if (Route::has('login'))
+                            <div class="topbar-right">
+                                <ul>
+                                    @auth
+                                        <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                                    @else
+                                        <li><a href="{{ route('login') }}">Login</a></li>
+                                        @if (Route::has('register'))
+                                            <li><a href="{{ route('register') }}">Register</a></li>
+                                        @endif
+                                    @endauth
+                                </ul>
+                            </div>
                         @endif
-                    @endauth
-                </div>
-            @endif
-        <!--
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
             </div>
-        -->
+            <div class="sticky-header navbar-expand-lg">
+                <div class="menu-bar clearfix">
+                    <div class="container clearfix">
+                        <!-- Header Logo ==== -->
+                        <div class="menu-logo">
+                            <a href="/"><img src="/img/logo-white-2.png" alt=""></a>
+                        </div>
+                        <!-- Mobile Nav Button ==== -->
+                        <button class="navbar-toggler collapsed menuicon justify-content-end" type="button"
+                            data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <!-- Author Nav ==== -->
+                        <div class="secondary-menu">
+                            <div class="secondary-inner">
+                                <ul>
+                                    <li><a href="#" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+                                    <!-- Search Button ==== -->
+                                    <li class="search-btn"><button id="quik-search-btn" type="button"
+                                            class="btn-link"><i class="fa fa-search"></i></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Search Box ==== -->
+                        <div class="nav-search-bar">
+                            <form action="#">
+                                <input name="search" value="" type="text" class="form-control"
+                                    placeholder="Type to search">
+                                <span><i class="ti-search"></i></span>
+                            </form>
+                            <span id="search-remove"><i class="ti-close"></i></span>
+                        </div>
+                        <!-- Navigation Menu ==== -->
+                        <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+                            <div class="menu-logo">
+                                <a href="/"><img src="img/logo-03.png" alt=""></a>
+                            </div>
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/home">Home</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="/">Welcome Page</a></li>
+                                        <li><a href="/home">Dashboard</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:;">Pages <i class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="javascript:;">About<i class="fa fa-angle-right"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="about1">About Videsa</a></li>
+                                                <li><a href="about2">About US</a></li>
+                                            </ul>
+                                        </li>
 
+                                    <li><a href="{{ url('/news') }}">Notice</a>
+                                        <!--
+                                        <ul class="sub-menu">
+                                        <li><a href="event.html">Event</a></li>
+                                        <li><a href="events-details.html">Events Details</a></li>
+                                        </ul>
+                                        -->
+                                    </li>
+                                        <li><a href="faq">FAQ's</a>
+                                        </li>
+                                        <li><a href="javascript:;">Contact Us<i class="fa fa-angle-right"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="contact-1.html">Contact Us 1</a></li>
+                                                <li><a href="contact-2.html">Contact Us 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="portfolio.html">Portfolio</a></li>
+                                        <li><a href="profile.html">Profile</a></li>
+                                        <li><a href="membership.html">Membership</a></li>
+                                        <li><a href="error-404.html">404 Page</a></li>
+                                    </ul>
+                                </li>
+                                <li class="add-mega-menu"><a href="javascript:;">Our Courses <i
+                                            class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu add-menu">
+                                        <li class="add-menu-left">
+                                            <h5 class="menu-adv-title">Our Courses</h5>
+                                            <ul>
+                                                <li><a href="courses.html">Courses </a></li>
+                                                <li><a href="courses-details.html">Courses Details</a></li>
+                                                <li><a href="profile.html">Instructor Profile</a></li>
+                                                <li><a href="event.html">Upcoming Event</a></li>
+                                                <li><a href="membership.html">Membership</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="add-menu-right">
+                                            <img src="assets/images/adv/adv.jpg" alt="" />
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:;">Blog <i class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog-classic-grid.html">Blog Classic</a></li>
+                                        <li><a href="blog-classic-sidebar.html">Blog Classic Sidebar</a></li>
+                                        <li><a href="blog-list-sidebar.html">Blog List Sidebar</a></li>
+                                        <li><a href="blog-standard-sidebar.html">Blog Standard Sidebar</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-dashboard"><a href="javascript:;">Dashboard <i
+                                            class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="admin/index.html">Dashboard</a></li>
+                                        <li><a href="admin/add-listing.html">Add Listing</a></li>
+                                        <li><a href="admin/bookmark.html">Bookmark</a></li>
+                                        <li><a href="admin/courses.html">Courses</a></li>
+                                        <li><a href="admin/review.html">Review</a></li>
+                                        <li><a href="admin/teacher-profile.html">Teacher Profile</a></li>
+                                        <li><a href="admin/user-profile.html">User Profile</a></li>
+                                        <li><a href="javascript:;">Calendar<i class="fa fa-angle-right"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="admin/basic-calendar.html">Basic Calendar</a></li>
+                                                <li><a href="admin/list-view-calendar.html">List View Calendar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:;">Mailbox<i class="fa fa-angle-right"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="admin/mailbox.html">Mailbox</a></li>
+                                                <li><a href="admin/mailbox-compose.html">Compose</a></li>
+                                                <li><a href="admin/mailbox-read.html">Mail Read</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="nav-social-link">
+                                <a href="javascript:;"><i class="fa fa-facebook"></i></a>
+                                <a href="javascript:;"><i class="fa fa-google-plus"></i></a>
+                                <a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <!-- Navigation Menu END ==== -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Top END ==== -->
+        <!-- Content -->
+        <div class="page-content bg-white">
+            <!-- Main Slider -->
+            <div class="rev-slider">
+                <div id="rev_slider_486_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container"
+                    data-alias="news-gallery36" data-source="gallery"
+                    style="margin:0px auto;background-color:#ffffff;padding:0px;margin-top:0px;margin-bottom:0px;">
+                    <!-- START REVOLUTION SLIDER 5.3.0.2 fullwidth mode -->
+                    <div id="rev_slider_486_1" class="rev_slider fullwidthabanner" style="display:none;"
+                        data-version="5.3.0.2">
+                        <ul>
+                            <!-- SLIDE  -->
+                            <li data-index="rs-100" data-transition="parallaxvertical" data-slotamount="default"
+                                data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default"
+                                data-easeout="default" data-masterspeed="default" data-thumb="error-404.html"
+                                data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500"
+                                data-fsslotamount="7" data-saveperformance="off" data-title="A STUDY ON HAPPINESS"
+                                data-param1="" data-param2="" data-param3="" data-param4="" data-param5=""
+                                data-param6="" data-param7="" data-param8="" data-param9="" data-param10=""
+                                data-description="Science says that Women are generally happier">
+                                <!-- MAIN IMAGE -->
+                                <img src="assets/images/slider/slide1.jpg" alt=""
+                                    data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+                                    data-bgparallax="10" class="rev-slidebg" data-no-retina />
+
+                                <!-- LAYER NR. 1 -->
+                                <div class="tp-caption tp-shape tp-shapewrapper " id="slide-100-layer-1"
+                                    data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                    data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                                    data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape"
+                                    data-basealign="slide" data-responsive_offset="off" data-responsive="off"
+                                    data-frames='[{"from":"opacity:0;","speed":1,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"delay":"wait","speed":1,"to":"opacity:0;","ease":"Power4.easeOut"}]'
+                                    data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+                                    data-paddingleft="[0,0,0,0]"
+                                    style="z-index: 5;background-color:rgba(2, 0, 11, 0.80);border-color:rgba(0, 0, 0, 0);border-width:0px;">
+                                </div>
+                                <!-- LAYER NR. 2 -->
+                                <div class="tp-caption Newspaper-Title   tp-resizeme" id="slide-100-layer-2"
+                                    data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                    data-y="['top','top','top','top']" data-voffset="['250','250','250','240']"
+                                    data-fontsize="['50','50','50','30']" data-lineheight="['55','55','55','35']"
+                                    data-width="full" data-height="none" data-whitespace="normal" data-type="text"
+                                    data-responsive_offset="on"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                    data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]"
+                                    data-paddingleft="[0,0,0,0]"
+                                    style="z-index: 6; font-family:rubik; font-weight:700; text-align:center; white-space: normal;">
+                                    Welcome To Videsa
+                                </div>
+
+                                <!-- LAYER NR. 3 -->
+                                <div class="tp-caption Newspaper-Subtitle   tp-resizeme" id="slide-100-layer-3"
+                                    data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                    data-y="['top','top','top','top']" data-voffset="['210','210','210','210']"
+                                    data-width="none" data-height="none" data-whitespace="nowrap" data-type="text"
+                                    data-responsive_offset="on"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                    data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+                                    data-paddingleft="[0,0,0,0]"
+                                    style="z-index: 7; white-space: nowrap; color:#fff; font-family:rubik; font-size:18px; font-weight:400;">
+                                    Batter Education For A Better
+                                </div>
+
+                                <!-- LAYER NR. 3 -->
+                                <div class="tp-caption Newspaper-Subtitle   tp-resizeme" id="slide-100-layer-4"
+                                    data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                    data-y="['top','top','top','top']" data-voffset="['320','320','320','290']"
+                                    data-width="['800','800','700','420']" data-height="['100','100','100','120']"
+                                    data-whitespace="unset" data-type="text" data-responsive_offset="on"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                    data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+                                    data-paddingleft="[0,0,0,0]"
+                                    style="z-index: 7; text-transform:capitalize; white-space: unset; color:#fff; font-family:rubik; font-size:18px; line-height:28px; font-weight:400;">
+                                    Easy learn for Everyone
+                                </div>
+                                <!-- LAYER NR. 4 -->
+                                <div class="tp-caption Newspaper-Button rev-btn " id="slide-100-layer-5"
+                                    data-x="['center','center','center','center']"
+                                    data-hoffset="['90','80','75','90']" data-y="['top','top','top','top']"
+                                    data-voffset="['400','400','400','420']" data-width="none" data-height="none"
+                                    data-whitespace="nowrap" data-type="button" data-responsive_offset="on"
+                                    data-responsive="off"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                    data-textAlign="['center','center','center','center']"
+                                    data-paddingtop="[12,12,12,12]" data-paddingright="[30,35,35,15]"
+                                    data-paddingbottom="[12,12,12,12]" data-paddingleft="[30,35,35,15]"
+                                    style="z-index: 8; white-space: nowrap; outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; background-color:var(--primary) !important; border:0; border-radius:30px; margin-right:5px;">
+                                    READ MORE </div>
+                                <div class="tp-caption Newspaper-Button rev-btn" id="slide-100-layer-6"
+                                    data-x="['center','center','center','center']"
+                                    data-hoffset="['-90','-80','-75','-90']" data-y="['top','top','top','top']"
+                                    data-voffset="['400','400','400','420']" data-width="none" data-height="none"
+                                    data-whitespace="nowrap" data-type="button" data-responsive_offset="on"
+                                    data-responsive="off"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                    data-textAlign="['center','center','center','center']"
+                                    data-paddingtop="[12,12,12,12]" data-paddingright="[30,35,35,15]"
+                                    data-paddingbottom="[12,12,12,12]" data-paddingleft="[30,35,35,15]"
+                                    style="z-index: 8; white-space: nowrap; outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; border-radius:30px;">
+                                    CONTACT US</div>
+                            </li>
+                            <li data-index="rs-200" data-transition="parallaxvertical" data-slotamount="default"
+                                data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default"
+                                data-easeout="default" data-masterspeed="default"
+                                data-thumb="assets/images/slider/slide1.jpg" data-rotate="0" data-fstransition="fade"
+                                data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"
+                                data-title="A STUDY ON HAPPINESS" data-param1="" data-param2="" data-param3=""
+                                data-param4="" data-param5="" data-param6="" data-param7="" data-param8=""
+                                data-param9="" data-param10=""
+                                data-description="Science says that Women are generally happier">
+                                <!-- MAIN IMAGE -->
+                                <img src="assets/images/slider/slide2.jpg" alt=""
+                                    data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+                                    data-bgparallax="10" class="rev-slidebg" data-no-retina />
+
+                                <!-- LAYER NR. 1 -->
+                                <div class="tp-caption tp-shape tp-shapewrapper " id="slide-200-layer-1"
+                                    data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                    data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+                                    data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape"
+                                    data-basealign="slide" data-responsive_offset="off" data-responsive="off"
+                                    data-frames='[{"from":"opacity:0;","speed":1,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"to":"opacity:1;","ease":"Power4.easeOut"}]'
+                                    data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+                                    data-paddingleft="[0,0,0,0]"
+                                    style="z-index: 5;background-color:rgba(2, 0, 11, 0.80);border-color:rgba(0, 0, 0, 0);border-width:0px;">
+                                </div>
+
+                                <!-- LAYER NR. 2 -->
+                                <div class="tp-caption Newspaper-Title   tp-resizeme" id="slide-200-layer-2"
+                                    data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                    data-y="['top','top','top','top']" data-voffset="['250','250','250','240']"
+                                    data-fontsize="['50','50','50','30']" data-lineheight="['55','55','55','35']"
+                                    data-width="full" data-height="none" data-whitespace="normal" data-type="text"
+                                    data-responsive_offset="on"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                    data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]" data-paddingbottom="[10,10,10,10]"
+                                    data-paddingleft="[0,0,0,0]"
+                                    style="z-index: 6; font-family:rubik; font-weight:700; text-align:center; white-space: normal;text-transform:uppercase;">
+                                    Easy to teach
+                                </div>
+
+                                <!-- LAYER NR. 3 -->
+                                <div class="tp-caption Newspaper-Subtitle   tp-resizeme" id="slide-200-layer-3"
+                                    data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                    data-y="['top','top','top','top']" data-voffset="['210','210','210','210']"
+                                    data-width="none" data-height="none" data-whitespace="nowrap" data-type="text"
+                                    data-responsive_offset="on"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                    data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+                                    data-paddingleft="[0,0,0,0]"
+                                    style="z-index: 7; white-space: nowrap;text-transform:uppercase; color:#fff; font-family:rubik; font-size:18px; font-weight:400;">
+                                    Batter Education For A Better
+                                </div>
+
+                                <!-- LAYER NR. 3 -->
+                                <div class="tp-caption Newspaper-Subtitle   tp-resizeme" id="slide-200-layer-4"
+                                    data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                                    data-y="['top','top','top','top']" data-voffset="['320','320','320','290']"
+                                    data-width="['800','800','700','420']" data-height="['100','100','100','120']"
+                                    data-whitespace="unset" data-type="text" data-responsive_offset="on"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                    data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
+                                    data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+                                    data-paddingleft="[0,0,0,0]"
+                                    style="z-index: 7; text-transform:capitalize; white-space: unset; color:#fff; font-family:rubik; font-size:18px; line-height:28px; font-weight:400;">
+                                    Easy to Teach and learn in one platform
+                                </div>
+                                <!-- LAYER NR. 4 -->
+                                <div class="tp-caption Newspaper-Button rev-btn " id="slide-200-layer-5"
+                                    data-x="['center','center','center','center']"
+                                    data-hoffset="['90','80','75','90']" data-y="['top','top','top','top']"
+                                    data-voffset="['400','400','400','420']" data-width="none" data-height="none"
+                                    data-whitespace="nowrap" data-type="button" data-responsive_offset="on"
+                                    data-responsive="off"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                    data-textAlign="['center','center','center','center']"
+                                    data-paddingtop="[12,12,12,12]" data-paddingright="[30,35,35,15]"
+                                    data-paddingbottom="[12,12,12,12]" data-paddingleft="[30,35,35,15]"
+                                    style="z-index: 8; white-space: nowrap; outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; background-color:var(--primary) !important; border:0; border-radius:30px; margin-right:5px;">
+                                    READ MORE </div>
+                                <div class="tp-caption Newspaper-Button rev-btn" id="slide-200-layer-6"
+                                    data-x="['center','center','center','center']"
+                                    data-hoffset="['-90','-80','-75','-90']" data-y="['top','top','top','top']"
+                                    data-voffset="['400','400','400','420']" data-width="none" data-height="none"
+                                    data-whitespace="nowrap" data-type="button" data-responsive_offset="on"
+                                    data-responsive="off"
+                                    data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);bc:rgba(255, 255, 255, 1.00);bw:1px 1px 1px 1px;"}]'
+                                    data-textAlign="['center','center','center','center']"
+                                    data-paddingtop="[12,12,12,12]" data-paddingright="[30,35,35,15]"
+                                    data-paddingbottom="[12,12,12,12]" data-paddingleft="[30,35,35,15]"
+                                    style="z-index: 8; white-space: nowrap; outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer; border-radius:30px;">
+                                    CONTACT US</div>
+                            </li>
+                            <!-- SLIDE  -->
+                        </ul>
+                    </div><!-- END REVOLUTION SLIDER -->
+                </div>
+            </div>
+            <!-- Main Slider -->
+            <div class="content-block">
+
+                <!-- Our Services -->
+                <div class="section-area content-inner service-info-bx">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="service-bx">
+                                    <div class="action-box">
+                                        <img src="assets/images/our-services/pic1.jpg" alt="">
+                                    </div>
+                                    <div class="info-bx text-center">
+                                        <div class="feature-box-sm radius bg-white">
+                                            <i class="fa fa-bank text-primary"></i>
+                                        </div>
+                                        <h4><a href="#">Best Industry Leaders</a></h4>
+                                        <a href="#" class="btn radius-xl">View More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="service-bx">
+                                    <div class="action-box">
+                                        <img src="assets/images/our-services/pic2.jpg" alt="">
+                                    </div>
+                                    <div class="info-bx text-center">
+                                        <div class="feature-box-sm radius bg-white">
+                                            <i class="fa fa-book text-primary"></i>
+                                        </div>
+                                        <h4><a href="#">Learn Courses Online</a></h4>
+                                        <a href="#" class="btn radius-xl">View More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="service-bx m-b0">
+                                    <div class="action-box">
+                                        <img src="assets/images/our-services/pic3.jpg" alt="">
+                                    </div>
+                                    <div class="info-bx text-center">
+                                        <div class="feature-box-sm radius bg-white">
+                                            <i class="fa fa-file-text-o text-primary"></i>
+                                        </div>
+                                        <h4><a href="#">Book Library & Store</a></h4>
+                                        <a href="#" class="btn radius-xl">View More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Our Services END -->
+
+                <!-- Popular Courses -->
+                <div class="section-area section-sp2 popular-courses-bx">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 heading-bx left">
+                                <h2 class="title-head">Popular <span>Courses</span></h2>
+                                <p>It is a long established fact that a reader will be distracted by the readable
+                                    content of a page</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+                                <div class="item">
+                                    <div class="cours-bx">
+                                        <div class="action-box">
+                                            <img src="assets/images/courses/pic1.jpg" alt="">
+                                            <a href="#" class="btn">Read More</a>
+                                        </div>
+                                        <div class="info-bx text-center">
+                                            <h5><a href="#">Introduction EduChamp – LMS plugin</a></h5>
+                                            <span>Programming</span>
+                                        </div>
+                                        <div class="cours-more-info">
+                                            <div class="review">
+                                                <span>3 Review</span>
+                                                <ul class="cours-star">
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="price">
+                                                <del>$190</del>
+                                                <h5>$120</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="cours-bx">
+                                        <div class="action-box">
+                                            <img src="assets/images/courses/pic2.jpg" alt="">
+                                            <a href="#" class="btn">Read More</a>
+                                        </div>
+                                        <div class="info-bx text-center">
+                                            <h5><a href="#">Introduction EduChamp – LMS plugin</a></h5>
+                                            <span>Programming</span>
+                                        </div>
+                                        <div class="cours-more-info">
+                                            <div class="review">
+                                                <span>3 Review</span>
+                                                <ul class="cours-star">
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="price">
+                                                <del>$190</del>
+                                                <h5>$120</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="cours-bx">
+                                        <div class="action-box">
+                                            <img src="assets/images/courses/pic3.jpg" alt="">
+                                            <a href="#" class="btn">Read More</a>
+                                        </div>
+                                        <div class="info-bx text-center">
+                                            <h5><a href="#">Introduction EduChamp – LMS plugin</a></h5>
+                                            <span>Programming</span>
+                                        </div>
+                                        <div class="cours-more-info">
+                                            <div class="review">
+                                                <span>3 Review</span>
+                                                <ul class="cours-star">
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="price">
+                                                <del>$190</del>
+                                                <h5>$120</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="cours-bx">
+                                        <div class="action-box">
+                                            <img src="assets/images/courses/pic4.jpg" alt="">
+                                            <a href="#" class="btn">Read More</a>
+                                        </div>
+                                        <div class="info-bx text-center">
+                                            <h5><a href="#">Introduction EduChamp – LMS plugin</a></h5>
+                                            <span>Programming</span>
+                                        </div>
+                                        <div class="cours-more-info">
+                                            <div class="review">
+                                                <span>3 Review</span>
+                                                <ul class="cours-star">
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="price">
+                                                <del>$190</del>
+                                                <h5>$120</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Popular Courses END -->
+
+                <!-- Form -->
+                <div class="section-area section-sp1 ovpr-dark bg-fix online-cours"
+                    style="background-image:url(assets/images/background/bg1.jpg);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center text-white">
+                                <h2>Online Courses To Learn</h2>
+                                <h5>Own Your Feature Learning New Skills Online</h5>
+                                <form class="cours-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control"
+                                            placeholder="What do you want to learn today?	">
+                                        <div class="input-group-append">
+                                            <button class="btn" type="submit">Search</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="mw800 m-auto">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="cours-search-bx m-b30">
+                                        <div class="icon-box">
+                                            <h3><i class="ti-user"></i><span class="counter">5</span>M</h3>
+                                        </div>
+                                        <span class="cours-search-text">Over 5 million student</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="cours-search-bx m-b30">
+                                        <div class="icon-box">
+                                            <h3><i class="ti-book"></i><span class="counter">30</span>K</h3>
+                                        </div>
+                                        <span class="cours-search-text">30,000 Courses.</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="cours-search-bx m-b30">
+                                        <div class="icon-box">
+                                            <h3><i class="ti-layout-list-post"></i><span class="counter">20</span>K
+                                            </h3>
+                                        </div>
+                                        <span class="cours-search-text">Learn Anythink Online.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Form END -->
+
+                <!-- Notice -->
+                <div class="section-area section-sp2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center heading-bx">
+                                <h2 class="title-head m-b0">NOTICES</h2>
+                                <p class="m-b0">Important Notices about This site</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="upcoming-event-carousel owl-carousel owl-btn-center-lr owl-btn-1 col-12 p-lr0  m-b10">
+
+                                <!-- Posts --->
+                                    @foreach ($posts as $post)
+
+                                    <div class="item">
+                                        <div class="event-bx">
+                                            <div class="action-box">
+                                                <img src="/images/{{ $post->image }}">
+                                            </div>
+                                            <div class="info-bx d-flex">
+                                                <!--<div>
+                                                    <div class="event-time">
+                                                        <div class="event-date">29</div>
+                                                        <div class="event-month">October</div>
+                                                    </div>
+                                                </div>-->
+                                                <div class="event-info">
+                                                    <h4 class="event-title">{{ $post->Title }}</h4>
+                                                    <ul class="media-post">
+                                                        <li><a href="#"><i class="fa fa-clock-o"></i>{{ $post->created_at }}</a></li>
+                                                    </ul>
+                                                    <p>{{ $post->description }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a class="btn" href="{{ url('/news') }}">VIEW ALL</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Notice End -->
+
+                <!-- Testimonials -->
+                <div class="section-area section-sp2 bg-fix ovbl-dark"
+                    style="background-image:url(assets/images/background/bg1.jpg);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-white heading-bx left">
+                                <h2 class="title-head text-uppercase">what people <span>say</span></h2>
+                                <p>It is a long established fact that a reader will be distracted by the readable
+                                    content of a page</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+                            <div class="item">
+                                <div class="testimonial-bx">
+                                    <div class="testimonial-thumb">
+                                        <img src="assets/images/testimonials/pic1.jpg" alt="">
+                                    </div>
+                                    <div class="testimonial-info">
+                                        <h5 class="name">Peter Packer</h5>
+                                        <p>-Art Director</p>
+                                    </div>
+                                    <div class="testimonial-content">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the
+                                            1500s, when an unknown printer took a galley of type...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial-bx">
+                                    <div class="testimonial-thumb">
+                                        <img src="assets/images/testimonials/pic2.jpg" alt="">
+                                    </div>
+                                    <div class="testimonial-info">
+                                        <h5 class="name">Peter Packer</h5>
+                                        <p>-Art Director</p>
+                                    </div>
+                                    <div class="testimonial-content">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the
+                                            1500s, when an unknown printer took a galley of type...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonials END -->
+
+                <!-- Recent News -->
+                <div class="section-area section-sp2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 heading-bx left">
+                                <h2 class="title-head">Recent <span>News</span></h2>
+                                <p>It is a long established fact that a reader will be distracted by the readable
+                                    content of a page</p>
+                            </div>
+                        </div>
+                        <div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+                            <div class="item">
+                                <div class="recent-news">
+                                    <div class="action-box">
+                                        <img src="assets/images/blog/latest-blog/pic1.jpg" alt="">
+                                    </div>
+                                    <div class="info-bx">
+                                        <ul class="media-post">
+                                            <li><a href="#"><i class="fa fa-calendar"></i>Jan 02 2019</a></li>
+                                            <li><a href="#"><i class="fa fa-user"></i>By William</a></li>
+                                        </ul>
+                                        <h5 class="post-title"><a href="blog-details.html">This Story Behind Education
+                                                Will Haunt You Forever.</a></h5>
+                                        <p>Knowing that, you’ve optimised your pages countless amount of times, written
+                                            tons.</p>
+                                        <div class="post-extra">
+                                            <a href="#" class="btn-link">READ MORE</a>
+                                            <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>20
+                                                Comment</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="recent-news">
+                                    <div class="action-box">
+                                        <img src="assets/images/blog/latest-blog/pic2.jpg" alt="">
+                                    </div>
+                                    <div class="info-bx">
+                                        <ul class="media-post">
+                                            <li><a href="#"><i class="fa fa-calendar"></i>Feb 05 2019</a></li>
+                                            <li><a href="#"><i class="fa fa-user"></i>By John</a></li>
+                                        </ul>
+                                        <h5 class="post-title"><a href="blog-details.html">What Will Education Be Like
+                                                In The Next 50 Years?</a></h5>
+                                        <p>As desperate as you are right now, you have done everything you can on your.
+                                        </p>
+                                        <div class="post-extra">
+                                            <a href="#" class="btn-link">READ MORE</a>
+                                            <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>14
+                                                Comment</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="recent-news">
+                                    <div class="action-box">
+                                        <img src="assets/images/blog/latest-blog/pic3.jpg" alt="">
+                                    </div>
+                                    <div class="info-bx">
+                                        <ul class="media-post">
+                                            <li><a href="#"><i class="fa fa-calendar"></i>April 14 2019</a></li>
+                                            <li><a href="#"><i class="fa fa-user"></i>By George</a></li>
+                                        </ul>
+                                        <h5 class="post-title"><a href="blog-details.html">Master The Skills Of
+                                                Education And Be.</a></h5>
+                                        <p>You will see in the guide all my years of valuable experience together with.
+                                        </p>
+                                        <div class="post-extra">
+                                            <a href="#" class="btn-link">READ MORE</a>
+                                            <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>23
+                                                Comment</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Recent News End -->
+
+            </div>
+            <!-- contact area END -->
         </div>
-    </body>
+        <!-- Content END-->
+        <!-- Footer ==== -->
+        <footer>
+            <div class="footer-top">
+                <div class="pt-exebar">
+                    <div class="container">
+                        <div class="d-flex align-items-stretch">
+                            <div class="pt-logo mr-auto">
+                                <a href="index.html"><img src="img/logo-white-2.png" alt="VIDESA" /></a>
+                            </div>
+                            <div class="pt-social-link">
+                                <ul class="list-inline m-a0">
+                                    <li><a href="#" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" class="btn-link"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pt-btn-join">
+                                <a href="{{ route('register') }}" class="btn ">Join Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 col-sm-12 footer-col-4">
+                            <div class="widget">
+                                <h5 class="footer-title">Sign Up For A Newsletter</h5>
+                                <p class="text-capitalize m-b20">Weekly Breaking news analysis and cutting edge advices
+                                    on job searching.</p>
+                                <div class="subscribe-form m-b20">
+                                    <form class="subscription-form"
+                                        action="http://educhamp.themetrades.com/demo/assets/script/mailchamp.php"
+                                        method="post">
+                                        <div class="ajax-message"></div>
+                                        <div class="input-group">
+                                            <input name="email" required="required" class="form-control"
+                                                placeholder="Your Email Address" type="email">
+                                            <span class="input-group-btn">
+                                                <button name="submit" value="Submit" type="submit"
+                                                    class="btn"><i class="fa fa-arrow-right"></i></button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-7 col-sm-12">
+                            <div class="row">
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                    <div class="widget footer_widget">
+                                        <h5 class="footer-title">Company</h5>
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about-1.html">About</a></li>
+                                            <li><a href="faq-1.html">FAQs</a></li>
+                                            <li><a href="contact-1.html">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                    <div class="widget footer_widget">
+                                        <h5 class="footer-title">Get In Touch</h5>
+                                        <ul>
+                                            <li><a
+                                                    href="http://educhamp.themetrades.com/admin/index.html">Dashboard</a>
+                                            </li>
+                                            <li><a href="blog-classic-grid.html">Blog</a></li>
+                                            <li><a href="portfolio.html">Portfolio</a></li>
+                                            <li><a href="event.html">Event</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                                    <div class="widget footer_widget">
+                                        <h5 class="footer-title">Courses</h5>
+                                        <ul>
+                                            <li><a href="courses.html">Courses</a></li>
+                                            <li><a href="courses-details.html">Details</a></li>
+                                            <li><a href="membership.html">Membership</a></li>
+                                            <li><a href="profile.html">Profile</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-5 col-sm-12 footer-col-4">
+                            <div class="widget widget_gallery gallery-grid-4">
+                                <h5 class="footer-title">Our Gallery</h5>
+                                <ul class="magnific-image">
+                                    <li><a href="assets/images/gallery/pic1.jpg" class="magnific-anchor"><img
+                                                src="assets/images/gallery/pic1.jpg" alt=""></a></li>
+                                    <li><a href="assets/images/gallery/pic2.jpg" class="magnific-anchor"><img
+                                                src="assets/images/gallery/pic2.jpg" alt=""></a></li>
+                                    <li><a href="assets/images/gallery/pic3.jpg" class="magnific-anchor"><img
+                                                src="assets/images/gallery/pic3.jpg" alt=""></a></li>
+                                    <li><a href="assets/images/gallery/pic4.jpg" class="magnific-anchor"><img
+                                                src="assets/images/gallery/pic4.jpg" alt=""></a></li>
+                                    <li><a href="assets/images/gallery/pic5.jpg" class="magnific-anchor"><img
+                                                src="assets/images/gallery/pic5.jpg" alt=""></a></li>
+                                    <li><a href="assets/images/gallery/pic6.jpg" class="magnific-anchor"><img
+                                                src="assets/images/gallery/pic6.jpg" alt=""></a></li>
+                                    <li><a href="assets/images/gallery/pic7.jpg" class="magnific-anchor"><img
+                                                src="assets/images/gallery/pic7.jpg" alt=""></a></li>
+                                    <li><a href="assets/images/gallery/pic8.jpg" class="magnific-anchor"><img
+                                                src="assets/images/gallery/pic8.jpg" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center"> <a target="_blank"
+                                href="#">Avishka Udara</a></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer END ==== -->
+        <button class="back-to-top fa fa-chevron-up"></button>
+    </div>
+
+    <!-- External JavaScripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+    <script src="assets/vendors/magnific-popup/magnific-popup.js"></script>
+    <script src="assets/vendors/counter/waypoints-min.js"></script>
+    <script src="assets/vendors/counter/counterup.min.js"></script>
+    <script src="assets/vendors/imagesloaded/imagesloaded.js"></script>
+    <script src="assets/vendors/masonry/masonry.js"></script>
+    <script src="assets/vendors/masonry/filter.js"></script>
+    <script src="assets/vendors/owl-carousel/owl.carousel.js"></script>
+    <script src="assets/js/functions.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <!-- Revolution JavaScripts Files -->
+    <script src="assets/vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="assets/vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- Slider revolution 5.0 Extensions  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="assets/vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            var ttrevapi;
+            var tpj = jQuery;
+            if (tpj("#rev_slider_486_1").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_486_1");
+            } else {
+                ttrevapi = tpj("#rev_slider_486_1").show().revolution({
+                    sliderType: "standard",
+                    jsFileLocation: "assets/vendors/revolution/js/",
+                    sliderLayout: "fullwidth",
+                    dottedOverlay: "none",
+                    delay: 9000,
+                    navigation: {
+                        keyboardNavigation: "on",
+                        keyboard_direction: "horizontal",
+                        mouseScrollNavigation: "off",
+                        mouseScrollReverse: "default",
+                        onHoverStop: "on",
+                        touch: {
+                            touchenabled: "on",
+                            swipe_threshold: 75,
+                            swipe_min_touches: 1,
+                            swipe_direction: "horizontal",
+                            drag_block_vertical: false
+                        },
+                        arrows: {
+                            style: "uranus",
+                            enable: true,
+                            hide_onmobile: false,
+                            hide_onleave: false,
+                            tmp: '',
+                            left: {
+                                h_align: "left",
+                                v_align: "center",
+                                h_offset: 10,
+                                v_offset: 0
+                            },
+                            right: {
+                                h_align: "right",
+                                v_align: "center",
+                                h_offset: 10,
+                                v_offset: 0
+                            }
+                        },
+
+                    },
+                    viewPort: {
+                        enable: true,
+                        outof: "pause",
+                        visible_area: "80%",
+                        presize: false
+                    },
+                    responsiveLevels: [1240, 1024, 778, 480],
+                    visibilityLevels: [1240, 1024, 778, 480],
+                    gridwidth: [1240, 1024, 778, 480],
+                    gridheight: [768, 600, 600, 600],
+                    lazyType: "none",
+                    parallax: {
+                        type: "scroll",
+                        origo: "enterpoint",
+                        speed: 400,
+                        levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 46, 47, 48, 49, 50, 55],
+                        type: "scroll",
+                    },
+                    shadow: 0,
+                    spinner: "off",
+                    stopLoop: "off",
+                    stopAfterLoops: -1,
+                    stopAtSlide: -1,
+                    shuffle: "off",
+                    autoHeight: "off",
+                    hideThumbsOnMobile: "off",
+                    hideSliderAtLimit: 0,
+                    hideCaptionAtLimit: 0,
+                    hideAllCaptionAtLilmit: 0,
+                    debugMode: false,
+                    fallbacks: {
+                        simplifyAll: "off",
+                        nextSlideOnWindowFocus: "off",
+                        disableFocusListener: false,
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
 </html>
