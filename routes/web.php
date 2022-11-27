@@ -41,6 +41,7 @@ Route::resource('User', UserController::class);
 
 Route::resource('posts', PostController::class);
 
+
 Route::get('faq', function () {
     return view('welcome.faq');
 });
