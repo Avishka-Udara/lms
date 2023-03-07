@@ -1,4 +1,4 @@
-@extends('posts.layout')
+@extends('layouts.postlayout')
 
 @section('content')
     <div class="row">
@@ -15,7 +15,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-
+ 
 
     <table class="table table-hover">
         <thead>

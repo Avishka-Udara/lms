@@ -1,16 +1,6 @@
-@extends('cources.layout')
+@extends('layouts.Courcelayout')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit cource</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('cources.index') }}"> Back</a>
-            </div>
-        </div>
-    </div>
 
     @if ($errors->any())
         <div class="alert alert-danger">

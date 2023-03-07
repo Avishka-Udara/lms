@@ -1,4 +1,4 @@
-@extends('cources.layout')
+@extends('layouts.Courcelayout')
 
 @section('content')
     <div class="row">

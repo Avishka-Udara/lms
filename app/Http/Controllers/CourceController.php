@@ -17,12 +17,19 @@ class CourceController extends Controller
     {
 
         $userID=Auth::user()->id;
+        $usertype=Auth::user()->usertype;
         //$cources = Cource::table('cource')->where('creator_id', $userID)->get();
         //$cources = Cource::latest()->where('creator_id', $userID)->get();
-
-        $cources = Cource::latest()->where('creator_id', $userID)->paginate(5);
-        return view('cources.index',compact('cources'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        if($usertype=='2'){
+            $cources = Cource::latest()->where('creator_id', $userID)->paginate(5);
+            return view('cources.index',compact('cources'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
+        }
+        else{
+            $cources = Cource::latest()->paginate(5);
+            return view('cources.index',compact('cources'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
+        }
     }
 
     /**
@@ -32,7 +39,13 @@ class CourceController extends Controller
      */
     public function create()
     {
-        return view('cources.create');
+        $usertype=Auth::user()->usertype;
+        if($usertype=='2'){
+            return view('cources.create');
+        }
+        else {
+            abort(403);
+        }
     }
 
     /**

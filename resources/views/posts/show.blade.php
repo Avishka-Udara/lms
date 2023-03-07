@@ -1,4 +1,4 @@
-@extends('posts.layout')
+@extends('layouts.postlayout')
 @section('content')
 
     <div class="row">

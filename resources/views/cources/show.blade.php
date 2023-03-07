@@ -1,17 +1,10 @@
-@extends('cources.layout')
+@extends('layouts.Courcelayout')
 
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show cource</h2>
-            </div>
 
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('cources.index') }}"> Back</a>
-            </div>
             <form action="{{ route('cources.destroy', $cource->id) }}" method="POST">
-                <a class="btn btn-info" href="{{ route('cources.show', $cource->id) }}">Show</a>
                 <a class="btn btn-primary" href="{{ route('cources.edit', $cource->id) }}">Edit</a>
                 @csrf
                 @method('DELETE')

@@ -1,4 +1,4 @@
-@extends('welcome.layout')
+@extends('layouts.welcomelayout')
 @section('content')
     <!-- Inner Content Box ==== -->
     <div class="page-content">

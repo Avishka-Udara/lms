@@ -1,4 +1,4 @@
-@extends('welcome.layout')
+@extends('layouts.welcomelayout')
 @section('content')
         <!-- Content -->
         <div class="page-content bg-white">
