@@ -6,6 +6,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\CourceController;
+use App\Http\Controllers\MaterialController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +27,8 @@ Route::get('/', function () {
 Route::resource('/', WelcomeController::class);
 Route::resource('news', NewsController::class);
 
+Route::get('material', [MaterialController::class, 'createForm']);
+Route::post('material', [MaterialController::class, 'fileUpload'])->name('fileUpload');
 
 Route::middleware([
     'auth:sanctum',
@@ -40,6 +45,8 @@ Route::get('/home',[HomeController::class,'home']);
 Route::resource('User', UserController::class);
 
 Route::resource('posts', PostController::class);
+
+Route::resource('cources', courceController::class);
 
 
 Route::get('faq', function () {

@@ -20,6 +20,9 @@
             <div class="form-group">
                 <strong>Title:</strong>
                 {{ $post->Title }}
+                <ul class="media-post">
+                    <li><a href="#"><i class="fa fa-clock-o"></i>{{ $post->created_at }}</a></li>
+                </ul>
             </div>
         </div>
 

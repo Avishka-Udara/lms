@@ -6,7 +6,7 @@
             <div class="page-banner ovbl-dark" style="background-image:url(assets/images/banner/banner1.jpg);">
                 <div class="container">
                     <div class="page-banner-entry">
-                        <h1 class="text-white">Notices</h1>
+                        <h1 class="text-white">News Page</h1>
                      </div>
                 </div>
             </div>
@@ -15,7 +15,7 @@
                 <div class="container">
                     <ul class="list-inline">
                         <li><a href="/">Home</a></li>
-                        <li>Notice</li>
+                        <li>News</li>
                     </ul>
                 </div>
             </div>
@@ -28,6 +28,9 @@
                             <div class="col-md-6">
                                 <div class="text-white p-4 p-md-5">
                                     <h2 class="fw-bold text-white mb-3">{{ $post->Title }}</h2>
+                                    <ul class="media-post">
+                                        <li> <i class="fa fa-clock-o"> </i>{{ $post->created_at }}</li>
+                                    </ul>
                                     <p class="mb-4">{{ $post->description }}</p>
                                 </div>
                             </div>

@@ -31,6 +31,13 @@
                         </x-jet-nav-link>
                     </div>
                 @endif
+                @if($usertype == 2)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('Course')">
+                            {{ __('Course') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
