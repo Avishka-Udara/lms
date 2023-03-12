@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('cource_name');
             $table->string('cource_detail');
             $table->string('creator_id');
-            $table->string('image');
             $table->string('enrollment_key');
             $table->timestamps();
         });

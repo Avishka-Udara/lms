@@ -25,7 +25,7 @@
 
 
 
-    <form action="{{ route('cources.store') }}" method="POST">
+    <form action="{{ route('cources.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
@@ -46,6 +46,25 @@
                 <div class="form-group">
                     <strong>enrollment_key:</strong>
                     <input type="text" name="enrollment_key" class="form-control" placeholder="enrollment_key" value="{{ old('enrollment_key') }}">
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Image:</strong>
+                    <input type="file" name="image" class="form-control" placeholder="image">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>year:</strong>
+                    <input type="text" name="year" class="form-control" placeholder="year" value="{{ old('year') }}">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>semester:</strong>
+                    <input type="text" name="semester" class="form-control" placeholder="semester" value="{{ old('semester') }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -34,7 +34,7 @@
                             <form action="{{ route('cources.materials.destroy', [$cource->id, $material->id]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this material?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'>{{ __('Delete') }}</button>
                             </form>
                         </td>
                     </tr>

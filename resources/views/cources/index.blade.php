@@ -28,6 +28,7 @@
                                 @foreach ($cources as $cource)
                                     <tr>
                                         <td>{{ $cource->id }}</td>
+                                        <td><img src="/images/{{ $cource->image }}" width="100px"></td>
                                         <td>{{ $cource->cource_name }}</td>
                                         <td>{{ $cource->cource_detail }}</td>
                                         @if(Auth::user()->usertype == 2)
@@ -37,7 +38,7 @@
                                             <form action="{{ route('cources.destroy', $cource) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
+                                                <button type="submit" class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'>{{ __('Delete') }}</button>
                                             </form>
                                         </td>
                                         @elseif(Auth::user()->usertype == 0)

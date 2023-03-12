@@ -17,39 +17,48 @@
                     </x-jet-nav-link>
                 </div>
                 <?php $usertype = Auth::user()->usertype; ?>
-                @if($usertype == 1)
+                @if (auth()->check())
+                    @if($usertype == 1)
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/User') }}" :active="request()->routeIs('User')">
+                                {{ __('Users') }}
+                            </x-jet-nav-link>
+                        </div>
+                    @endif
+                    @if($usertype == 1)
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/posts') }}" :active="request()->routeIs('Post')">
+                                {{ __('Posts') }}
+                            </x-jet-nav-link>
+                        </div>
+                    @endif
+                    @if($usertype == 2)
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('Course')">
+                                {{ __('Course') }}
+                            </x-jet-nav-link>
+                        </div>
+                    @endif
+                    @if($usertype == 0)
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('Course')">
+                                {{ __('Course') }}
+                            </x-jet-nav-link>
+                            <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
+                                {{ __('Timetable') }}
+                            </x-jet-nav-link>
+                        </div>
+                    @endif
+                @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ url('/User') }}" :active="request()->routeIs('User')">
-                            {{ __('Users') }}
-                        </x-jet-nav-link>
-                    </div>
-                @endif
-                @if($usertype == 1)
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ url('/posts') }}" :active="request()->routeIs('Post')">
-                            {{ __('Posts') }}
-                        </x-jet-nav-link>
-                    </div>
-                @endif
-                @if($usertype == 2)
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('Course')">
-                            {{ __('Course') }}
-                        </x-jet-nav-link>
-                    </div>
-                @endif
-                @if($usertype == 0)
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('Course')">
-                            {{ __('Course') }}
-                        </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
-                            {{ __('Timetable') }}
+                        <x-jet-nav-link href="{{ url('/allcources') }}" :active="request()->routeIs('Course')">
+                            {{ __('Courses') }}
                         </x-jet-nav-link>
                     </div>
                 @endif
             </div>
 
+            @if (auth()->check())
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -153,7 +162,8 @@
                     </x-jet-dropdown>
                 </div>
             </div>
-
+            @endif
+            
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">

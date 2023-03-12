@@ -18,9 +18,17 @@
 
 
                     <div class="card-body">
+                        <p>{{ $cource->year }} > {{ $cource->semester }}</p>
                         <p>{{ $cource->cource_detail }}</p>
 
                         <h4>{{ __('cource Materials') }}</h4>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Image:</strong>
+                                <img src="/images/{{ $cource->image }}" width="500px">
+                            </div>
+                        </div>
 
                         <ul>
                                 @foreach($cource->materials as $material)
@@ -38,7 +46,7 @@
                             <form class="d-inline" method="POST" action="{{ route('cources.destroy', $cource->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                                <button type="submit" class="btn btn-xs btn-danger btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'>{{ __('Delete') }}</button>
                             </form>
                         </div> 
                         @endif

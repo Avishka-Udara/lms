@@ -14,7 +14,7 @@ class allcourcesController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     public function show(Cource $Cource)
-    {
+    { 
         
         return view('allcource.show',compact('Cource'));
         

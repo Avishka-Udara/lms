@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Enrollment;
 
 class Cource extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'cource_name','cource_detail','creator_id','enrollment_key','image','year','semester'
+        'cource_name','cource_detail','creator_id','enrollment_key'
     ];
 
     public function materials()
@@ -22,4 +23,5 @@ class Cource extends Model
     {
         return $this->hasMany(Enrollment::class);
     }
+
 }
