@@ -1,56 +1,59 @@
-@extends('layouts.Courcelayout')
-
-
+@extends('layouts.courcelayout')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('cources.create') }}"> Create New cource</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Cources') }}</div>
+                    <div class="card-header"><a href="allcources">{{ __('All Cources') }}</a></div>
+                    
+
+                    <div class="card-body">
+                        @if(Auth::user()->usertype == 2)
+                        <a href="{{ route('cources.create') }}" class="btn btn-primary mb-3">{{ __('Create New Cource') }}</a>
+                        @endif
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>{{ __('ID') }}</th>
+                                    <th>{{ __('Title') }}</th>
+                                    <th>{{ __('Description') }}</th>
+                                    @if(Auth::user()->usertype == 2)
+                                    <th>{{ __('Actions') }}</th>
+                                    @endif
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($cources as $cource)
+                                    <tr>
+                                        <td>{{ $cource->id }}</td>
+                                        <td>{{ $cource->cource_name }}</td>
+                                        <td>{{ $cource->cource_detail }}</td>
+                                        @if(Auth::user()->usertype == 2)
+                                        <td>
+                                            <a href="{{ route('cources.show', $cource) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>
+                                            <a href="{{ route('cources.edit', $cource) }}" class="btn btn-secondary btn-sm">{{ __('Edit') }}</a>
+                                            <form action="{{ route('cources.destroy', $cource) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
+                                            </form>
+                                        </td>
+                                        @elseif(Auth::user()->usertype == 0)
+                                        <td>
+                                        <a href="{{ route('cources.show', $cource) }}" class="btn btn-primary btn-sm">{{ __('View') }}</a>
+                                        </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        {{ $cources->links() }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
-
-
-    <table class="table table-bordered">
-
-        <tr>
-            <th>No</th>
-            <th>cource_name</th>
-            <th>cource_detail</th>
-            <th width="280px">Action</th>
-        </tr>
-
-        @foreach ($cources as $cource)
-            <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $cource->cource_name }}</td>
-                <td>{{ $cource->cource_detail }}</td>
-                <td>
-                    <form action="{{ route('cources.destroy', $cource->id) }}" method="POST">
-                        <a class="btn btn-info" href="{{ route('cources.show', $cource->id) }}">Show</a>
-                        <a class="btn btn-primary" href="{{ route('cources.edit', $cource->id) }}">Edit</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-
-                </td>
-
-            </tr>
-        @endforeach
-
-    </table>
-
-
-
-    {!! $cources->links() !!}
 @endsection

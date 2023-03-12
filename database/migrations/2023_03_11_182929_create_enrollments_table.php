@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cources', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
-            $table->string('cource_name');
-            $table->string('cource_detail');
-            $table->string('creator_id');
-            $table->string('image');
-            $table->string('enrollment_key');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('cource_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cources');
+        Schema::dropIfExists('enrollments');
     }
 };

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
     public function index()
     {
         $posts = Post::latest()->paginate(5);
+        //$posts = Post::select('title', DB::raw('SUBSTRING(description, 1, 500) AS description'))->get();
         return view('welcome.news',compact('posts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

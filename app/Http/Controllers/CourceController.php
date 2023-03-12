@@ -2,17 +2,15 @@
 namespace App\Http\Controllers;
 use App\Models\Cource;
 use App\Models\User;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\CourseMaterial;
 
 class CourceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
 
@@ -25,10 +23,17 @@ class CourceController extends Controller
             return view('cources.index',compact('cources'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
         }
+        
         else{
-            $cources = Cource::latest()->paginate(5);
-            return view('cources.index',compact('cources'))
-                ->with('i', (request()->input('page', 1) - 1) * 5);
+            //$cources = Cource::latest()->paginate(5);
+            //return view('cources.index',compact('cources'))
+            //    ->with('i', (request()->input('page', 1) - 1) * 5);
+            $user = Auth::user();
+            $cources = Cource::whereHas('enrollments', function($query) use($user) {
+                $query->where('user_id', $user->id);
+            })->paginate(5);
+
+            return view('cources.index', compact('cources'));
         }
     }
 
@@ -82,7 +87,8 @@ class CourceController extends Controller
      */
     public function show(Cource $cource)
     {
-        return view('cources.show',compact('cource'));
+        $materials = $cource->materials()->latest()->get();
+        return view('cources.show', compact('cource'));
     }
 
     /**
@@ -144,4 +150,17 @@ class CourceController extends Controller
                         ->with('success','cource deleted successfully');
     }
 
+
+    public function enroll(Cource $cource)
+    {
+        if (!Auth::user()->enrollments->contains($cource->id)) {
+            $enrollment = new Enrollment();
+            $enrollment->user_id = Auth::id();
+            $enrollment->cource_id = $cource->id;
+            $enrollment->save();
+            return redirect()->back()->with('success', 'Enrolled successfully');
+        } else {
+            return redirect()->back()->with('error', 'Already enrolled');
+        }
+    }
 }

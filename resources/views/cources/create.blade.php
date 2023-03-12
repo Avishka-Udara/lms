@@ -1,4 +1,4 @@
-@extends('layouts.Courcelayout')
+@extends('layouts.courcelayout')
 
 @section('content')
     <div class="row">
@@ -32,20 +32,20 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>cource_name:</strong>
-                    <input type="text" name="cource_name" class="form-control" placeholder="cource_name">
+                    <input type="text" name="cource_name" class="form-control" placeholder="cource_name" value="{{ old('cource_name') }}">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>cource_detail:</strong>
-                    <textarea class="form-control" style="height:150px" name="cource_detail" placeholder="cource_detail"></textarea>
+                    <textarea class="form-control" style="height:150px" name="cource_detail" placeholder="cource_detail" value="{{ old('cource_detail') }}"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>enrollment_key:</strong>
-                    <input type="text" name="enrollment_key" class="form-control" placeholder="enrollment_key">
+                    <input type="text" name="enrollment_key" class="form-control" placeholder="enrollment_key" value="{{ old('enrollment_key') }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

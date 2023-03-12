@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cources', function (Blueprint $table) {
+        Schema::create('course_materials', function (Blueprint $table) {
             $table->id();
-            $table->string('cource_name');
-            $table->string('cource_detail');
-            $table->string('creator_id');
-            $table->string('image');
-            $table->string('enrollment_key');
+            $table->unsignedBigInteger('cource_id');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('file_path')->nullable(); // Add this line to create the file_path column
             $table->timestamps();
+
+            $table->foreign('cource_id')->references('id')->on('Cources')->onDelete('cascade');
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cources');
+        Schema::dropIfExists('course_materials');
     }
 };
