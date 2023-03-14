@@ -90,7 +90,7 @@ class CourceController extends Controller
         $request->validate([
             'cource_name' => 'required',
             'cource_detail' => 'required',
-            'enrollment_key' => 'required|max:20|unique:cources',
+            'enrollment_key' => 'required|max:20',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'year' => 'required',
             'semester' => 'required',

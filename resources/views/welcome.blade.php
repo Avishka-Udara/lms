@@ -647,24 +647,26 @@
                             <!--item-->
                             <div class="item">
                                 <div class="recent-news">
-                                    <div class="action-box">
-                                        <img src="/images/{{ $post->image }}" alt="">
+                                    <div class="action-box" style="width: 100%; overflow:hidden;">
+                                        <img style="width: 110%;" src="/images/{{ $post->image }}" alt="">
                                     </div>
                                     <div class="info-bx">
                                         <ul class="media-post">
+                                            <h5 class="post-title">{{ $post->Title }}</h5>
                                             <li><a href="#"><i class="fa fa-calendar"></i>{{ $post->created_at }}</a></li>
                                         </ul>
-                                        <h5 class="post-title">{{ $post->Title }}</h5>
+                                        
                                         <p>{{ Str::limit($post->description, 100) }}</p>
                                     </div>
                                 </div>
                             </div>
                             <!--item-->
                             @endforeach
-                            <div class="text-center">
                         </div>
+                        <div>
+                            <a class="btn mt-3" href="{{ url('/news') }}">VIEW ALL</a>
                         </div>
-                        <a class="btn" href="{{ url('/news') }}">VIEW ALL</a>
+                        
                     </div>
                 </div>
                 <!-- Recent News End -->

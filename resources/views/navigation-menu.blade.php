@@ -24,11 +24,19 @@
                                 {{ __('Users') }}
                             </x-jet-nav-link>
                         </div>
-                    @endif
-                    @if($usertype == 1)
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-jet-nav-link href="{{ url('/posts') }}" :active="request()->routeIs('Post')">
                                 {{ __('Posts') }}
+                            </x-jet-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/Cources') }}" :active="request()->routeIs('Post')">
+                                {{ __('Cources') }}
+                            </x-jet-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/posts') }}" :active="request()->routeIs('Post')">
+                                {{ __('Timetable') }}
                             </x-jet-nav-link>
                         </div>
                     @endif
@@ -38,14 +46,32 @@
                                 {{ __('Course') }}
                             </x-jet-nav-link>
                         </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
+                                {{ __('Timetable') }}
+                            </x-jet-nav-link>
+                        </div>
+                        
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
+                                {{ __('Assignment') }}
+                            </x-jet-nav-link>
+                        </div>
                     @endif
                     @if($usertype == 0)
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('Course')">
                                 {{ __('Course') }}
                             </x-jet-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
                                 {{ __('Timetable') }}
+                            </x-jet-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
+                                {{ __('Assignment') }}
                             </x-jet-nav-link>
                         </div>
                     @endif

@@ -9,7 +9,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CourceController;
 use App\Http\Controllers\CourseMaterialController;
-
+use App\Http\Controllers\AssignmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,5 +76,4 @@ Route::get('about1', function () {
 Route::get('about2', function () {
     return view('welcome.about2');
 });
-
 

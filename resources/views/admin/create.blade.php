@@ -40,7 +40,7 @@
               <label for="password">Password</label>
               <input type="text" class="form-control" name="password"/>
           </div>
-          <button type="submit" class="btn btn-block btn-danger">Create User</button>
+          <button type="submit" class="btn btn-block btn-outline-success">Create User</button>
       </form>
   </div>
 </div>

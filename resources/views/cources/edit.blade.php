@@ -1,7 +1,16 @@
 @extends('layouts.courcelayout')
 
 @section('content')
+
+<br>
     <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/cources">Cources</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit {{ $cource->cource_name }}</li>
+            </ol>
+        </nav>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
