@@ -1,53 +1,80 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-hidden shadow-xl sm:rounded-lg">
-                Admin dashboard 
-                <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <div class="col">
-                        <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+@extends('layouts.adminlayout')
+@section('content')
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
+                            <h3 class="card-title">Title</h3>
+                            <p class="card-text">afafasfsdfsdf</p>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+                </div>
+                <div class="col-4">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
+                            <h3 class="card-title">Title</h3>
+                            <p class="card-text">Tesdfsfsdfxt</p>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+                </div>
+                <div class="col-4">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
+                            <h3 class="card-title">Title</h3>
+                            <p class="card-text">Textsdfsdfsfsvcvcv cvc</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-md-9 mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Title</h3>
+                            <p class="card-text">afafasfsdfsdf</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Title</h3>
+                            <p class="card-text">Tesdfsfsdfxt</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Title</h3>
+                            <p class="card-text">Textsdfsdfsfsvcvcv cvc</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 mt-4">
+            <div class="row">
+                <div class="col-4">
+                    <div class="d-grid gap-2">
+                        <a href="{{ route('User.create')}}" class="btn btn-outline-primary">BUTTON</a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="d-grid gap-2">
+                        <a href="{{ route('User.create')}}" class="btn btn-outline-success">BUTTON</a>
+                      </div>
+                </div>
+                <div class="col-4">
+                    <div class="d-grid gap-2">
+                        <a href="{{ route('User.create')}}" class="btn btn-outline-success">BUTTON</a>
+                      </div>
+                </div>
+            </div>
+        </div>
     </div>
-</x-app-layout>
+@endsection

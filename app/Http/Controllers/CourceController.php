@@ -12,33 +12,44 @@ class CourceController extends Controller
     
     public function index()
     {
-        $userID=Auth::user()->id;
-        $usertype=Auth::user()->usertype;
-        if($usertype=='2'){
-            $cources = Cource::latest()->where('creator_id', $userID)->paginate(5);
-            return view('cources.index',compact('cources'))
-                ->with('i', (request()->input('page', 1) - 1) * 5);
-        }
-        
-        else{
-            $user = Auth::user();
-            $cources = Cource::whereHas('enrollments', function($query) use($user) {
-                $query->where('user_id', $user->id);
-            })->paginate(5);
+        if (auth()->check()){
+            $userID=Auth::user()->id;
+            $usertype=Auth::user()->usertype;
+            if($usertype=='2'){
+                $cources = Cource::latest()->where('creator_id', $userID)->paginate(5);
+                return view('cources.index',compact('cources'))
+                    ->with('i', (request()->input('page', 1) - 1) * 5);
+            }
+            
+            else{
+                $user = Auth::user();
+                $cources = Cource::whereHas('enrollments', function($query) use($user) {
+                    $query->where('user_id', $user->id);
+                })->paginate(5);
 
-            return view('cources.index', compact('cources'));
+                return view('cources.index', compact('cources'));
+            }
+        }
+        else{
+            abort(403);
         }
     }
 
     
     public function create()
     {
-        $usertype=Auth::user()->usertype;
-        if($usertype=='2'){
-            return view('cources.create');
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            if($usertype=='2'){
+                return view('cources.create');
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
 
@@ -125,8 +136,9 @@ class CourceController extends Controller
 
     public function enroll(Cource $cource)
     {
-        $usertype=Auth::user()->usertype;
+        
         if (auth()->check()){
+            $usertype=Auth::user()->usertype;
             if (!Auth::user()->enrollments->contains($cource->id)) {
                 $enrollment = new Enrollment();
                 $enrollment->user_id = Auth::id();
@@ -137,8 +149,9 @@ class CourceController extends Controller
                 return redirect()->back()->with('error', 'Already enrolled');
             }
         }
-        else {
-            # code...
+        else{
+            abort(403);
+            return view('/');
         }
     }
 

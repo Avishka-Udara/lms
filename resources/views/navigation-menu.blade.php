@@ -11,13 +11,22 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ url('/home') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
-                </div>
-                <?php $usertype = Auth::user()->usertype; ?>
                 @if (auth()->check())
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ url('/home') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-jet-nav-link>
+                    </div>
+                @else
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Home') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
+                
+                @if (auth()->check())
+                <?php $usertype = Auth::user()->usertype; ?>
                     @if($usertype == 1)
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-jet-nav-link href="{{ url('/User') }}" :active="request()->routeIs('User')">
@@ -188,7 +197,7 @@
                     </x-jet-dropdown>
                 </div>
             </div>
-            @endif
+            
             
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
@@ -199,9 +208,10 @@
                     </svg>
                 </button>
             </div>
+            @endif
         </div>
     </div>
-
+    @if (auth()->check())
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
@@ -280,4 +290,5 @@
             </div>
         </div>
     </div>
+    @endif
 </nav>

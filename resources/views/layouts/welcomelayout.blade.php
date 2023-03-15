@@ -21,7 +21,7 @@
 
 	<!-- FAVICONS ICON ============================================= -->
 	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+	<link rel="shortcut icon" href="{{ asset('/img/shortcut.png') }}">
 
 	<!-- PAGE TITLE HERE ============================================= -->
 	<title>VIDESA </title>

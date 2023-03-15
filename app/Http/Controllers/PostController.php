@@ -15,16 +15,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        $usertype=Auth::user()->usertype;
-        $User = User::all();
-        if($usertype=='1'){
-            $posts = Post::latest()->paginate(5);
-            return view('posts.index',compact('posts'))
-                ->with('i', (request()->input('page', 1) - 1) * 5);
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            $User = User::all();
+            if($usertype=='1'){
+                $posts = Post::latest()->paginate(5);
+                return view('posts.index',compact('posts'))
+                    ->with('i', (request()->input('page', 1) - 1) * 5);
 
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
 
@@ -35,13 +41,19 @@ class PostController extends Controller
      */
     public function create()
     {
-        $usertype=Auth::user()->usertype;
-        $User = User::all();
-        if($usertype=='1'){
-            return view('posts.create');
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            $User = User::all();
+            if($usertype=='1'){
+                return view('posts.create');
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
 
@@ -53,34 +65,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $usertype=Auth::user()->usertype;
-        $User = User::all();
-        if($usertype=='1'){
-            $request->validate([
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            $User = User::all();
+            if($usertype=='1'){
+                $request->validate([
 
-                'Title' => 'required',
-                'description' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'Title' => 'required',
+                    'description' => 'required',
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-            ]);
+                ]);
 
 
-            $input = $request->all();
+                $input = $request->all();
 
-            if ($image = $request->file('image')) {
-                $destinationPath = 'images/';
-                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $profileImage);
-                $input['image'] = "$profileImage";
+                if ($image = $request->file('image')) {
+                    $destinationPath = 'images/';
+                    $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                    $image->move($destinationPath, $profileImage);
+                    $input['image'] = "$profileImage";
 
+                }
+
+                Post::create($input);
+                return redirect()->route('posts.index')
+                                ->with('success','post created successfully.');
             }
-
-            Post::create($input);
-            return redirect()->route('posts.index')
-                            ->with('success','post created successfully.');
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
 
     }
@@ -93,13 +111,19 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $usertype=Auth::user()->usertype;
-        $User = User::all();
-        if($usertype=='1'){
-            return view('posts.show',compact('post'));
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            $User = User::all();
+            if($usertype=='1'){
+                return view('posts.show',compact('post'));
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
 
@@ -111,13 +135,19 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $usertype=Auth::user()->usertype;
-        $User = User::all();
-        if($usertype=='1'){
-            return view('posts.edit',compact('post'));
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            $User = User::all();
+            if($usertype=='1'){
+                return view('posts.edit',compact('post'));
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
 
@@ -130,31 +160,37 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $usertype=Auth::user()->usertype;
-        $User = User::all();
-        if($usertype=='1'){
-            $request->validate([
-                'Title' => 'required',
-                'description' => 'required'
-            ]);
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            $User = User::all();
+            if($usertype=='1'){
+                $request->validate([
+                    'Title' => 'required',
+                    'description' => 'required'
+                ]);
 
-            $input = $request->all();
+                $input = $request->all();
 
-            if ($image = $request->file('image')) {
-                $destinationPath = 'images/';
-                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $profileImage);
-                $input['image'] = "$profileImage";
+                if ($image = $request->file('image')) {
+                    $destinationPath = 'images/';
+                    $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                    $image->move($destinationPath, $profileImage);
+                    $input['image'] = "$profileImage";
 
-            }else{
-                unset($input['image']);
+                }else{
+                    unset($input['image']);
+                }
+                $post->update($input);
+                return redirect()->route('posts.index')
+                                ->with('success','post updated successfully');
             }
-            $post->update($input);
-            return redirect()->route('posts.index')
-                            ->with('success','post updated successfully');
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
 
@@ -166,15 +202,21 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $usertype=Auth::user()->usertype;
-        $User = User::all();
-        if($usertype=='1'){
-            $post->delete();
-            return redirect()->route('posts.index')
-                            ->with('success','Post deleted successfully');
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            $User = User::all();
+            if($usertype=='1'){
+                $post->delete();
+                return redirect()->route('posts.index')
+                                ->with('success','Post deleted successfully');
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
 }

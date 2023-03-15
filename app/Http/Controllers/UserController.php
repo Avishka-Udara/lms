@@ -13,13 +13,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usertype=Auth::user()->usertype;
-        $User = User::all();
-        if($usertype=='1'){
-            return view('admin.index', compact('User'));
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            $User = User::all();
+            if($usertype=='1'){
+                return view('admin.index', compact('User'));
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
     /**
@@ -29,12 +35,18 @@ class UserController extends Controller
      */
     public function create()
     {
-        $usertype=Auth::user()->usertype;
-        if($usertype=='1'){
-            return view('admin.create');
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            if($usertype=='1'){
+                return view('admin.create');
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
     /**
@@ -45,25 +57,31 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $usertype=Auth::user()->usertype;
-        if($usertype=='1'){
-            $storeData = $request->validate([
-                'name' => 'required|max:255',
-                'email' => 'required|max:255',
-                'usertype' => 'required',
-                'password' => 'required|max:255',
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            if($usertype=='1'){
+                $storeData = $request->validate([
+                    'name' => 'required|max:255',
+                    'email' => 'required|max:255',
+                    'usertype' => 'required',
+                    'password' => 'required|max:255',
 
-            ]);
-            $user = User::create([
-                'name'=>$storeData['name'],
-                'email' => $storeData['email'],
-                'usertype' => $storeData['usertype'],
-                'password' =>bcrypt($storeData['password'])
-            ]);
-            return redirect('/User')->with('completed', 'User has been saved!');
+                ]);
+                $user = User::create([
+                    'name'=>$storeData['name'],
+                    'email' => $storeData['email'],
+                    'usertype' => $storeData['usertype'],
+                    'password' =>bcrypt($storeData['password'])
+                ]);
+                return redirect('/User')->with('completed', 'User has been saved!');
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
     /**
@@ -74,13 +92,19 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $User = User::findOrFail($id);
-        $usertype=Auth::user()->usertype;
-        if($usertype=='1'){
-            return view('admin.show', compact('User'));
+        if (auth()->check()){
+            $User = User::findOrFail($id);
+            $usertype=Auth::user()->usertype;
+            if($usertype=='1'){
+                return view('admin.show', compact('User'));
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
     /**
@@ -91,60 +115,67 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $User = User::findOrFail($id);
-        $usertype=Auth::user()->usertype;
-        if($usertype=='1'){
-            return view('admin.edit', compact('User'));
+        if (auth()->check()){
+            $User = User::findOrFail($id);
+            $usertype=Auth::user()->usertype;
+            if($usertype=='1'){
+                return view('admin.edit', compact('User'));
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        $usertype=Auth::user()->usertype;
-        if($usertype=='1'){
-            $updateData = $request->validate([
-                'name' => 'required|max:255',
-                'email' => 'required|max:255',
-                'usertype' => 'required',
-                'password' => 'required|max:255',
-            ]);
-            User::whereId($id)->update(([
-                'name'=>$updateData['name'],
-                'email' => $updateData['email'],
-                'usertype' => $updateData['usertype'],
-                'password' =>bcrypt($updateData['password'])
-            ]));
-            return redirect('/User')->with('completed', 'User has been updated');
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            if($usertype=='1'){
+                $updateData = $request->validate([
+                    'name' => 'required|max:255',
+                    'email' => 'required|max:255',
+                    'usertype' => 'required',
+                    'password' => 'required|max:255',
+                ]);
+                User::whereId($id)->update(([
+                    'name'=>$updateData['name'],
+                    'email' => $updateData['email'],
+                    'usertype' => $updateData['usertype'],
+                    'password' =>bcrypt($updateData['password'])
+                ]));
+                return redirect('/User')->with('completed', 'User has been updated');
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
-        $usertype=Auth::user()->usertype;
-        if($usertype=='1'){
-            $User = User::findOrFail($id);
-            $User->delete();
-            return redirect('/User')->with('completed', 'User has been deleted');
+        if (auth()->check()){
+            $usertype=Auth::user()->usertype;
+            if($usertype=='1'){
+                $User = User::findOrFail($id);
+                $User->delete();
+                return redirect('/User')->with('completed', 'User has been deleted');
+            }
+            else {
+                abort(403);
+            }
         }
-        else {
+        else{
             abort(403);
+            return view('/');
         }
     }
 }

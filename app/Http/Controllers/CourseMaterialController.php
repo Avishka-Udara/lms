@@ -16,7 +16,13 @@ class CourseMaterialController extends Controller
 
     public function create(cource $cource)
     {
+        if (auth()->check()){
         return view('materials.create', compact('cource'));
+        }
+        else{
+            abort(403); 
+            return view('/');
+        }
     }
 
     public function store(Request $request, cource $cource)
@@ -49,7 +55,13 @@ class CourseMaterialController extends Controller
 
     public function edit(cource $cource, CourseMaterial $material)
     {
+        if (auth()->check()){
         return view('materials.edit', compact('cource', 'material'));
+        }
+        else{
+            abort(403);
+            return view('/');
+        }
     }
 
     public function update(Request $request, cource $cource, CourseMaterial $material)
@@ -71,9 +83,13 @@ class CourseMaterialController extends Controller
 
     public function destroy(cource $cource, CourseMaterial $material)
     {
-        $material->delete();
-        
-        return redirect()->route('cources.materials.index', $cource)->with('success', 'Material deleted successfully!');
+        if (auth()->check()){
+            $material->delete();
+            return redirect()->route('cources.materials.index', $cource)->with('success', 'Material deleted successfully!');
+        }
+        else{
+            return redirect()->route('cources.materials.index', $cource)->with('Failed', 'Mined Your Own business Please');
+        }
     }
 }
 
