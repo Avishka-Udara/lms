@@ -43,14 +43,23 @@
                                     <li><a href="{{ route('cources.materials.show',[$cource, $material]) }}">{{ $material->title }}</a></li>
                                 @endforeach
                         </ul>
+
+                        <ul>
+                            @foreach($cource->assignments as $assignment)
+                                <li><a href="{{ route('cources.assignments.show',[$cource, $assignment]) }}">{{ $assignment->title }}</a></li>
+                            @endforeach
+                        </ul>
                         @if(Auth::user()->usertype == 2)
                         <div class="form-group mb-0">
                             <a href="{{ route('cources.materials.create', $cource->id) }}" class="btn btn-primary">Add Material</a>
-                
-
-
-                            <a href="{{ route('cources.edit', $cource->id) }}" class="btn btn-primary">{{ __('Edit') }}</a>
                             <a href="{{ route('cources.materials.index', $cource->id) }}" class="btn btn-primary">{{ __('View All materials') }}</a>
+                        </div>
+                        <div class="form-group mb-0">
+                            <a href="{{ route('cources.assignments.create', $cource->id) }}" class="btn btn-primary">Add Assignments</a>
+                            <a href="{{ route('cources.assignments.index', $cource->id) }}" class="btn btn-primary">{{ __('View All Assignments') }}</a>
+                        </div>
+                        <div class="form-group mb-0">
+                            <a href="{{ route('cources.edit', $cource->id) }}" class="btn btn-primary">{{ __('Edit') }}</a>
                             <form class="d-inline" method="POST" action="{{ route('cources.destroy', $cource->id) }}">
                                 @csrf
                                 @method('DELETE')

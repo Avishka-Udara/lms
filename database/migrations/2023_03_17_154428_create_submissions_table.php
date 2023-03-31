@@ -13,9 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cources', function (Blueprint $table) {
+        Schema::create('submissions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('assignment_id');
+            $table->text('description')->nullable();
+            $table->string('file_path')->nullable(); 
             $table->timestamps();
+
+            $table->foreign('assignment_id')->references('id')->on('assignments')->onDelete('cascade');
+        
         });
     }
 
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cources');
+        Schema::dropIfExists('submissions');
     }
 };

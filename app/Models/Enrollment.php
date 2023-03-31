@@ -23,4 +23,9 @@ class Enrollment extends Model
     {
         return $this->belongsTo(Cource::class);
     }
+
+    public function submissions()
+    {
+        return $this->hasMany(AssignmentSubmission::class);
+    }
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CourceController;
 use App\Http\Controllers\CourseMaterialController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\SubmissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,4 +77,29 @@ Route::get('about1', function () {
 Route::get('about2', function () {
     return view('welcome.about2');
 });
+
+
+
+//assignment
+
+Route::middleware('auth')->group(function () {
+    Route::get('/cources/{cource}/assignments', [AssignmentController::class, 'index'])->name('cources.assignments.index');
+    Route::get('/cources/{cource}/assignments/create', [AssignmentController::class, 'create'])->name('cources.assignments.create');
+    Route::post('/cources/{cource}/assignments', [AssignmentController::class, 'store'])->name('cources.assignments.store');
+    Route::get('/cources/{cource}/assignments/{assignment}', [AssignmentController::class, 'show'])->name('cources.assignments.show');
+    Route::get('/cources/{cource}/assignments/edit/{assignment}', [AssignmentController::class, 'edit'])->name('cources.assignments.edit');
+    Route::put('/cources/{cource}/assignments/{assignment}', [AssignmentController::class, 'update'])->name('cources.assignments.update');
+    Route::delete('/cources/{cource}/assignments/{assignment}', [AssignmentController::class, 'destroy'])->name('cources.assignments.destroy');
+    
+});
+
+//submission
+
+Route::get('/cources/{cource}/assignments/{assignment}/submissions', [SubmissionController::class, 'index'])->name('cources.assignments.submission.index');
+Route::get('/cources/{cource}/assignments/{assignment}/submissions/create', [SubmissionController::class, 'create'])->name('cources.assignments.submission.create');
+Route::post('/cources/{cource}/assignments/{assignment}/submissions', [SubmissionController::class, 'store'])->name('cources.assignments.submission.store');
+Route::get('/cources/{cource}/assignments/{assignment}/submissions/{submission}', [SubmissionController::class, 'show'])->name('cources.assignments.submission.show');
+Route::get('/cources/{cource}/assignments/{assignment}/submissions/edit/{submission}', [SubmissionController::class, 'edit'])->name('cources.assignments.submission.edit');
+Route::put('/cources/{cource}/assignments/{assignment}/submissions/{submission}', [SubmissionController::class, 'update'])->name('cources.assignments.submission.update');
+Route::delete('/cources/{cource}/assignments/{assignment}/submissions/{submission}', [SubmissionController::class, 'destroy'])->name('cources.assignments.submission.destroy');
 

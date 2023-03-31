@@ -17,5 +17,5 @@ class CourseMaterial extends Model
     public function Cource()
     {
         return $this->belongsTo(Cource::class);
-    }
+    } 
 }

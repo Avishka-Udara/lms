@@ -60,6 +60,11 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function assignments()
+    {
+        return $this->hasMany(Assignment::class);
+    }
+
     public function enrollments()
     {
         return $this->hasMany(Enrollment::class);

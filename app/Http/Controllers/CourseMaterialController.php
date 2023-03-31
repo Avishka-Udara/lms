@@ -40,7 +40,7 @@ class CourseMaterialController extends Controller
             $file = $request->file('file');
             $fileName = uniqid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('/uploads/course_materials/'), $fileName);
-            $material->file_path =  $fileName;
+            $material->file_path =  ('../uploads/course_materials/' . $fileName);
         }
         
         $cource->materials()->save($material);

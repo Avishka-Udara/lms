@@ -23,4 +23,9 @@ class Cource extends Model
         return $this->hasMany(Enrollment::class);
     }
     
+    public function assignments()
+    {
+        return $this->hasMany(Assignment::class);
+    } 
+    
 }
