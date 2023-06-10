@@ -34,17 +34,17 @@
                             </x-jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ url('/posts') }}" :active="request()->routeIs('Post')">
+                            <x-jet-nav-link href="{{ url('/posts') }}" :active="request()->routeIs('posts')">
                                 {{ __('Posts') }}
                             </x-jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ url('/Cources') }}" :active="request()->routeIs('Post')">
+                            <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('cources')">
                                 {{ __('Cources') }}
                             </x-jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ url('/posts') }}" :active="request()->routeIs('Post')">
+                            <x-jet-nav-link href="{{ url('/timetables') }}" :active="request()->routeIs('timetables')">
                                 {{ __('Timetable') }}
                             </x-jet-nav-link>
                         </div>
@@ -56,33 +56,39 @@
                             </x-jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
-                                {{ __('Timetable') }}
+                            <x-jet-nav-link href="{{ url('/assignment') }}" :active="request()->routeIs('/assignment')">
+                                {{ __('assignment') }}
                             </x-jet-nav-link>
                         </div>
                         
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
-                                {{ __('Assignment') }}
-                            </x-jet-nav-link>
-                        </div>
-                    @endif
-                    @if($usertype == 0)
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('Course')">
                                 {{ __('Course') }}
                             </x-jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
+                            <x-jet-nav-link href="{{ url('/timetables') }}" :active="request()->routeIs('timetables')">
                                 {{ __('Timetable') }}
                             </x-jet-nav-link>
                         </div>
+                    @endif
+                    @if($usertype == 0)
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ url('/Timetable') }}" :active="request()->routeIs('Course')">
+                            <x-jet-nav-link href="{{ url('/cources') }}" :active="request()->routeIs('/cources')">
+                                {{ __('Courses') }}
+                            </x-jet-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('#') }}" :active="request()->routeIs('#')">
                                 {{ __('Assignment') }}
                             </x-jet-nav-link>
                         </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-jet-nav-link href="{{ url('/timetables') }}" :active="request()->routeIs('/timetables')">
+                                {{ __('Timetable') }}
+                            </x-jet-nav-link>
+                        </div>
+                        
                     @endif
                 @else
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

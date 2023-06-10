@@ -11,6 +11,7 @@ use App\Http\Controllers\CourceController;
 use App\Http\Controllers\CourseMaterialController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\SubmissionController;
+use App\Http\Controllers\TimetablesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,17 @@ Route::delete('/cources/{cource}/materials/{material}', [CourseMaterialControlle
 
 //cource enrollment 
 Route::post('/cources/{cource}/enroll', [CourceController::class, 'enroll'])->name('cources.enroll');
+
+
+//timetable
+Route::get('/timetables',[TimetablesController::class, 'index'])->name('timetables.index');
+Route::get('/timetables/create', [TimetablesController::class, 'create'])->name('timetables.create');
+Route::post('/timetables', [TimetablesController::class, 'store'])->name('timetables.store');
+Route::get('/timetables/{timetable}', [TimetablesController::class, 'show'])->name('timetables.show');
+Route::get('/timetables/{timetable}/edit', [TimetablesController::class, 'edit'])->name('timetables.edit');
+Route::put('/timetables/{timetable}', [TimetablesController::class, 'update'])->name('timetables.update');
+Route::delete('/timetables/{timetable}', [TimetablesController::class, 'destroy'])->name('timetables.destroy');
+
 
 
 

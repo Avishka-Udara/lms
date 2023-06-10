@@ -18,7 +18,7 @@ class Assignment extends Model
     // Relationships
     public function Cource()
     {
-        return $this->belongsTo(Cource::class);
+        return $this->belongsTo(Cource::class); 
     }
 
     public function user()
