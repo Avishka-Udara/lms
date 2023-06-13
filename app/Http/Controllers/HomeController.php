@@ -26,7 +26,7 @@ class HomeController extends Controller
             $Assignmentcount = Assignment::count();
             $Postcount = Post::count();
 
-
+ 
 
             if($usertype=='1'){
                 return view('admin.home', compact('userCount','TeacherCount','Coursecount','Assignmentcount','Postcount'));
